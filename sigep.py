@@ -145,43 +145,26 @@ def process(filename):
     cc_node_list = []
     cc_node_list = list(cc_dict.keys())
     print(cc_node_list)
-    node_p = zip(cc_node_list, p_list)
+    node_p = dict(zip(cc_node_list, p_list))
     print(node_p)
+    print(len(node_p))
+    node_p_sorted = sorted(node_p.items(), key = lambda x: x[1])
+    print(node_p_sorted)
+    print(type(node_p_sorted))
 
-
-    p_sorted = sorted(p_list)
-    print(type(p_sorted))
     adjust_p = []
     for i in range(len(p_list)):
         adjust = (i+1) * 1.0 * 0.01 / len(p_list)
         adjust_p.append(adjust)
     print(adjust_p)
-    for i in range(len(p_list)):
-       # writeline = str(p_sorted[i]) + " : " + str(adjust_p[i]) + "\n"
-        print(cc_dict.keys()[i] + " : " + str(p_sorted[i]) + " : " + str(adjust_p[i]) + "\n")
-    #print(writeline)
-
+    line = 0
+    for k,v in node_p_sorted:
+        line += 1
+        print(str(k) + " : " + str(v) + " : " + str(adjust_p[line-1]) + "\n")
 
 
 if __name__ == "__main__":
     filename = "original Gavin.txt"  #file name of PPI netwrok dataset
     process(filename)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
