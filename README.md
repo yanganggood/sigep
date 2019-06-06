@@ -1,1 +1,3 @@
-# sigep
+# Significance-Based Essential Protein Discovery]{Significance-Based Essential Protein Discovery<br>
+## Introduction<br>
+SigEP can  identity the essential proteins from Protein-Protein Interaction network: we present a p-value calculation method for quantifying the statistical significance of each protein by considering both its degree and local clustering coefficient. To reduce the computational cost, we further present an upper bound of the p-value, which is less timeconsuming in practice. After calculating the p-value for each protein, we control the FDR of identified essential proteins using the well-known BH algorithm.
