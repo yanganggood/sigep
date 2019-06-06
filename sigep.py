@@ -160,7 +160,8 @@ def process(filename):
     line = 0
     for k,v in node_p_sorted:
         line += 1
-        print(str(k) + " : " + str(v) + " : " + str(adjust_p[line-1]) + "\n")
+        if v < adjust_p[line-1]:
+            print(str(line) + " " + str(k) + " : " + str(v) + " : " + str(adjust_p[line-1]) + "\n")
 
 
 if __name__ == "__main__":
