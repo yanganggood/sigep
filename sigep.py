@@ -49,7 +49,7 @@ def getpvalue(cc_dict, v_dict, M, N):
                 ori += math.exp(p)
         pvalue = ori
         p_list.append(pvalue)
-    print("------------p值列表--------------")
+    print("------------plist--------------")
     print(p_list)
     print(len(p_list))
     return p_list
@@ -62,7 +62,7 @@ def getfdr(p_list, alpha):
         d[i] = p
         i += 1
     sorted_dict = sorted(d.items(), key=lambda x: x[1], reverse=False)
-    print("--------排序后的p_list---------")
+    print("--------sorted p_list---------")
     print (sorted_dict)
     print(len(sorted_dict))
     index = 0
@@ -87,11 +87,11 @@ def getfdr(p_list, alpha):
 def process(filename):
     #g = pd.read_csv("F:/Peggy/Python/sigep/karate.txt", sep='\t')
     #g = pd.read_csv("F:/Peggy/python/vertex centrality/simulation/32.csv", sep = ',')
-    g = pd.read_csv("F:/Peggy/Python/vertex centrality/data/original Gavin.txt", sep = '\t')
+    g = pd.read_csv("F:/Peggy/Python/vertex centrality/data/original Gavin.txt", sep = '\t') #read the PPI netwrok dataset
     # g2 = pd.read_csv("F:/Peggy/Python/vertex centrality/data/original dip.txt", sep='\t')
     # print (g)
     g1 = g[['node1', 'node2']]
-    # print(len(g1)) # 没问题
+    # print(len(g1)) 
     # print(g1)
     g1_array = np.array(g1)  # np.ndarray()
     g1_list = g1_array.tolist()  # list
@@ -103,7 +103,7 @@ def process(filename):
     #print(G[nodes[3]])
     #nbrs = list(G[nodes[3]])
     print("\n")
-    print("--------每一个节点的聚集系数--------")
+    print("--------local clustering coeffcient--------")
     cc_dict = nx.clustering(G)
     print(cc_dict)
     print(type(cc_dict))
@@ -164,7 +164,7 @@ def process(filename):
 
 
 if __name__ == "__main__":
-    filename = "original Gavin.txt"
+    filename = "original Gavin.txt"  #file name of PPI netwrok dataset
     process(filename)
 
 
