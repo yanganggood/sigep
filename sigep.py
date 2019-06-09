@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+
 import math
 import pandas as pd
 import os
@@ -132,11 +133,6 @@ def process(filename):
 
     N = len(v_dict)  # vertices
     print(N)
-    """a = []
-    for k in v_dict:
-        a.append(v_dict[k])
-    print(a)
-    degrees = a  # degrees"""
 
     p_list = getpvalue(cc_dict, v_dict, M, N)
     print("--------pvalue--------")
@@ -153,7 +149,8 @@ def process(filename):
     print(type(node_p_sorted))
 
     adjust_p = []
-    alpha = 0.01  # alpha is significance level, which always be 0.05 and 0.01
+     # alpha is the significance level, which can be user-specific and always be 0.05 or 0.01
+    alpha = 0.01 
     for i in range(len(p_list)):
         adjust = (i+1) * 1.0 * alpha / len(p_list)
         adjust_p.append(adjust)
@@ -162,6 +159,7 @@ def process(filename):
     for k,v in node_p_sorted:
         line += 1
         if v < adjust_p[line-1]:
+            # output is line number, protein name, pvalue and adjusted pvalue
             print(str(line) + " " + str(k) + " : " + str(v) + " : " + str(adjust_p[line-1]) + "\n")
 
 
