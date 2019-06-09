@@ -153,8 +153,9 @@ def process(filename):
     print(type(node_p_sorted))
 
     adjust_p = []
+    alpha = 0.01  # alpha is significance level, which always be 0.05 and 0.01
     for i in range(len(p_list)):
-        adjust = (i+1) * 1.0 * 0.01 / len(p_list)
+        adjust = (i+1) * 1.0 * alpha / len(p_list)
         adjust_p.append(adjust)
     print(adjust_p)
     line = 0
