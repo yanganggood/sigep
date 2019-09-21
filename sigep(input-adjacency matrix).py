@@ -62,7 +62,7 @@ def getfdr(p_list, alpha):
         d[i] = p
         i += 1
     sorted_dict = sorted(d.items(), key=lambda x: x[1], reverse=False)
-    print("--------排序后的p_list---------")
+    print("--------ranked p_list---------")
     print (sorted_dict)
     print(len(sorted_dict))
     index = 0
@@ -85,8 +85,6 @@ def getfdr(p_list, alpha):
 
 
 def process(filename):
-    #g = pd.read_csv("F:/Peggy/Python/sigep/karate.txt", sep='\t')
-    #g = pd.read_csv("F:/Peggy/python/vertex centrality/simulation/32.csv", sep = ',')
     g = pd.read_csv("F:/Peggy/Python/vertex centrality/karate.txt", sep = ' ', header=None)
     print(g)
     g1 = np.mat(g)
@@ -100,17 +98,13 @@ def process(filename):
     #print(G[nodes[3]])
     #nbrs = list(G[nodes[3]])
     print("\n")
-    print("--------每一个节点的聚集系数--------")
+    print("--------clustering coeffcient of each node--------")
     cc_dict = nx.clustering(G)
     print(cc_dict)
     print(type(cc_dict))
 
-    print(G.edges())
     M = len(G.edges())
     print(M)
-    #M = g1.iloc[:, 0].size  # numebr of edges #node1 node2 \n0 v1 v2\n1
-    #print(M)
-
     print("********")
 
     N = len(cc_dict)  # vertices
@@ -163,23 +157,8 @@ def process(filename):
 
 
 if __name__ == "__main__":
-    filename = "original dip.txt"
+    filename = "karate.txt"
     process(filename)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
