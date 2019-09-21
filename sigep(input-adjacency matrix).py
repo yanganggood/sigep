@@ -85,7 +85,7 @@ def getfdr(p_list, alpha):
 
 
 def process(filename):
-    g = pd.read_csv("F:/Peggy/Python/vertex centrality/karate.txt", sep = ' ', header=None)
+    g = pd.read_csv("F:/Peggy/Python/vertex centrality/sample.txt", sep = ' ', header=None)
     print(g)
     g1 = np.mat(g)
     print(g1)
@@ -157,7 +157,7 @@ def process(filename):
 
 
 if __name__ == "__main__":
-    filename = "karate.txt"
+    filename = "sample.txt"
     process(filename)
 
 
