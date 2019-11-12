@@ -117,7 +117,7 @@ def process(filename):
 
     N = len(cc_dict)  # vertices
     #print(N)
-
+    print(getlog(N*(N-1)/2))
 
     v_dict = {}
     for it in g1.iloc[:, 1]:
@@ -156,10 +156,17 @@ def process(filename):
         adjust_p.append(adjust)
     print(adjust_p)
     line = 0
+    maxindex = 0
     for k,v in node_p_sorted:
         line += 1
         if v < adjust_p[line-1]:
-            # output is line number, protein name, pvalue and adjusted pvalue
+            maxindex = line
+    print(maxindex)
+    line = 0
+    for k,v in node_p_sorted:
+        line += 1
+        if line <= maxindex:
+            # output is line number, protein name, pvalue
             print(str(line) + " " + str(k) + " : " + str(v) + " : " + str(adjust_p[line-1]) + "\n")
 
 
